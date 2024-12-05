@@ -47,4 +47,9 @@ def reg(req):
 def admin_home(req):
     return render(req,'admin/adminhome.html')
 def user_home(req):
-    return render(req,'user/userhome.html')
+
+    data=Plants.objects.all()[::-1]
+    return render(req,'user/userhome.html',{'Plants':data})
+
+def int_plt(req):
+    return render(req,'user/p_1.html')

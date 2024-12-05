@@ -6,8 +6,8 @@ urlpatterns=[
     path('',views.m_login),
     path('reg',views.reg),
     path('admin_home',views.admin_home),
-    path('user_home',views.user_home)
-
+    path('user_home',views.user_home),
+    path('int_plt',views.int_plt),
 
 
 ]
