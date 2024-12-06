@@ -106,14 +106,20 @@ body {
     outline: none;
 }
 
-.divtop{
-
+#divtop{
+    
     background-color:#4CAF50;
+}
+.carousel-item{
+    text-align: center;
 }
 /* ---------------user home ------------ */
 #navb{
-    background-color: #e4dabb85;
-
+    background-color: #e4dabb;
+    /* position: sticky;
+    top:0;
+    overflow: hidden;
+    z-index: 1 */
 }
 
 .navbar-nav {
@@ -124,6 +130,7 @@ body {
 #dropdown {
     float: left;
     overflow: hidden;
+    
   }
   
   #dropdown .dropbtn {
@@ -149,6 +156,7 @@ body {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    
   
   }
   
@@ -183,3 +191,19 @@ body {
     display:flex;
     align-content: center;
 } */
+
+
+@media (max-width:700px) {
+
+    #navb form {
+        flex-direction:column ;
+    }
+}
+
+@media  (max-width:700px){
+    #pp{
+     display: grid;
+     grid-template-columns: auto auto;
+ }
+ 
+}

@@ -8,7 +8,8 @@ from django.contrib import messages
 # Create your views here.
 
 def m_login(req):
-    
+    if 'user' in req.session:
+        return redirect(user_prfl)
     if req.method=='POST':
         uname=req.POST['username']
         password=req.POST['password']
@@ -20,7 +21,7 @@ def m_login(req):
                 return redirect(admin_home)
             else:
                 login(req,data)
-                # req.session['user']=uname
+                req.session['user']=uname
                 return redirect(user_home)
         else:
             messages.warning(req,"Invalid uname or password")
@@ -50,6 +51,19 @@ def user_home(req):
 
     data=Plants.objects.all()[::-1]
     return render(req,'user/userhome.html',{'Plants':data})
+def homep(req):
+    return redirect(user_home)
 
 def int_plt(req):
-    return render(req,'user/p_1.html')
+    data=Plants.objects.all()[::-1]
+    return render(req,'user/p_1.html',{'Plants':data})
+
+def user_prfl(req):
+    return render(req,'user/userprf.html')
+
+def user_logout(req):
+    req.session.flush()
+    logout(req)
+    return redirect(user_home)
+
+
