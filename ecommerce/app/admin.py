@@ -4,3 +4,4 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Plants)
+admin.site.register(Cart)

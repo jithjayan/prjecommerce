@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cart</h1>
+
+    <div class="container">
+        {% for i in cart_dtls %}
+        <div class="row">
+
+            <div class="col-lg-5">
+                <img src="{{i.Plant.img.url}}" alt="" style="width: 300px; height: 400px;object-fit: contain;">
+            </div>
+            <div class="col-lg-7">
+                <h2>{{i.Plantt.name}}</h2>
+                <s><h6>{{i.Plant.price}}</h6></s>
+                <h3>{{i.Plant.offer_price}}</h3>
+                <p>{{i.Plant.disp}}</p>
+                <a class="btn" href="../delete_cart/{{i.pk}}"> Remove</a>
+                <a class="btn" href="../user_buy/{{i.pk}}">Buy</a>
+            </div>
+        </div>
+
+        {% endfor %}
+</div>
+</body>
+</html>
