@@ -71,10 +71,14 @@ def view_pro(req,pid):
     return render(req,'user/view_pro.html',{'data':data})
 def add_to_cart(req,pid):
     prdct=Plants.objects.get(pk=pid)
-    user=User.objects.get(username=req.session['user'])
-    data=Cart.objects.create(user=user,Plants=prdct)
-    data.save()
-    return redirect(view_cart)
+    try:
+
+        user=User.objects.get(username=req.session['user'])
+        data=Cart.objects.create(user=user,Plants=prdct)
+        data.save()
+        return redirect(view_cart)
+    except:
+        return redirect(m_login)
 
 def view_cart(req):
     user=User.objects.get(username=req.session['user'])
