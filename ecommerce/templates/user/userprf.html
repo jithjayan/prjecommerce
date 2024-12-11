@@ -94,7 +94,6 @@
   <!-- ---------------navbarend------------- -->
   
     <h2>user profile</h2>
-    <a href="user_logout">logout</a>
 
 
 
@@ -102,11 +101,41 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-5" style="border: 2px solid black;">
-
+    <div class="col-lg-3" style=" width: 30%px;">
+      <div style=" margin-top: 10px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <img src="{% static 'images/prfl.webp' %}" alt="" style="height: 50px; width: 50px;"> 
+        <p>Hello,jith</p>
+      </div>
+      <a href="" style="text-decoration: none; color: black;">
+      <div style=" margin-top: 10px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); height: 50px;  ">
+        <i class="fa-solid fa-truck-fast" style="margin-right: 20px;margin-left: 10%;" ></i> ORDERS
+      </div></a>
+      <div style=" margin-top: 1px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; ">
+        <p>ACCOUNT SETTINGS</p>
+        <a href="" style="text-decoration: none; color: black;"> <div>Profile information</div></a>
+        <a href="" style="text-decoration: none; color: black;"><div> Manage Address </div></a>
+      </div>
+      <div style=" margin-top: 10px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+        <a href="user_logout" style="text-decoration: none; color: black;"> <div> <i class="fa-solid fa-power-off"></i>logout</div></a>
+      </div>
     </div>
-    <div class="col-lg-7" style="border: 2px solid blue;">
-    jbjbbdfbgdfhshs
+    <div class="col-lg-7" style=" margin-top: 10px;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+      <div class="row" style="margin-top: 20px;">
+        <form action="">
+          <label for="">Name</label><br>
+          <input type="text" placeholder="name" value=""><br>
+          <label for="">Email Address</label><br>
+          <input type="email" placeholder="email" value=""><br><br>
+          <label for="">Number</label>
+          <input type="number" name="" id="" placeholder="Contact Number" >
+          <label for="" style="margin-left: 40px;">DOB</label>
+          <input type="date" name="" id="" ><br><br>
+          <label for="">Gender</label><br>
+          <input type="radio" name="" id="" value="gnd">Male <input type="radio" value="gnd">Female
+        </form>
+      </div>
+    </div>
+  </div>
     </div>
   </div>
 </div>

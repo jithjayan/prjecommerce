@@ -3,10 +3,11 @@ body {
 
 }
 .logo p{
-    margin-top: 2px;
-    margin-left: 45%;
+    /* margin-top: 2px;
+    margin-left: 45%; */
     font-size: 40px;
     font-family: cursive;
+    text-align: center;
 }
 .ml{
     height: 120px;
