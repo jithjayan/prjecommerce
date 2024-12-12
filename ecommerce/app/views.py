@@ -81,6 +81,9 @@ def add_to_cart(req,pid):
         return redirect(m_login)
 
 def view_cart(req):
-    user=User.objects.get(username=req.session['user'])
-    cart_dtls=Cart.objects.filter(user=user)
-    return render(req,'user/cart.html',{'cart_dtls':cart_dtls})
+    if 'user' in req.session:
+        user=User.objects.get(username=req.session['user'])
+        cart_dtls=Cart.objects.filter(user=user)
+        return render(req,'user/cart.html',{'cart_dtls':cart_dtls})
+    else:
+        return redirect(m_login)
