@@ -1,9 +1,11 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from .models import *
-from django.contrib.auth.models import User
 import os
+from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 
@@ -36,11 +38,12 @@ def reg(req):
             email=req.POST['email']
             password=req.POST['password']
             try:
+                send_mail('user registration', 'account created', settings.EMAIL_HOST_USER, [email])
                 data=User.objects.create_user(first_name=name,email=email,password=password,username=email)
                 data.save()
                 return redirect(m_login)
             except:
-                messages.warning(req,"Email already exist")
+                messages.warning(req,"Email not valid")
                 return redirect(reg)
         else:
             return render(req,'user/register.html')
