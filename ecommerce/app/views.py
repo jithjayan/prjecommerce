@@ -17,7 +17,7 @@ def m_login(req):
         if data:
             if data.is_superuser:
                 login(req,data)
-                # req.session['shop']=uname~
+                req.session['shop']=uname
                 return redirect(admin_home)
             else:
                 login(req,data)
