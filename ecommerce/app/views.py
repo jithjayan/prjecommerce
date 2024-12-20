@@ -49,7 +49,9 @@ def reg(req):
             return render(req,'user/register.html')
 
 def admin_home(req):
-    return render(req,'admin/adminhome.html')
+    data=Category.objects.all()
+    return render(req,'admin/adminhome.html',{'Category':data})
+
 def user_home(req):
 
     data=Plants.objects.all()[::-1]
@@ -90,3 +92,20 @@ def view_cart(req):
         return render(req,'user/cart.html',{'cart_dtls':cart_dtls})
     else:
         return redirect(m_login)
+
+
+
+
+def add_catg(req):
+    if req.method=='POST':
+        name=req.POST['c_name']
+        data=Category.objects.create(c_name=name)
+        data.save()
+        return redirect(add_catg)
+    else:
+        data=Category.objects.all()
+        return render(req,'admin/add_catg.html',{'Category':data})
+
+# def view_category(req):
+#     data=Category.objects.all()
+#     return render(req,'admin/add_catg.html',{'Category':data})

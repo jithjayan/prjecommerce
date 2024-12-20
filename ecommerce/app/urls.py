@@ -14,6 +14,8 @@ urlpatterns=[
     path('add_to_cart/<pid>',views.add_to_cart),
     path('view_cart',views.view_cart),
     path('view_pro/<pid>',views.view_pro),
-
+    path('add_catg',views.add_catg),
+    # path('view_category',views.view_category),
+ 
 
 ]

@@ -23,25 +23,17 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        {% for i in Category%}
         <ul class="navbar-nav me-auto">
           <li class="nav-item" id="dropdown">
-            <a href="" class="nav-link" id="dropbtn"> plants
+            <a href="" class="nav-link" id="dropbtn">{{i.c_name}}
             </a>
             <div class="dropdown-content">
               <a href="int_plt">Indoor Plants</a>
-              <a href="#">Flowering Plants</a>
-              <a href="#">Low Maintains Plants</a>
-              <a href="#">Air Purifying Plants</a>
-              <a href="#">Low Light Plants</a>
-              <a href="#">Cacti & Succulents Plants</a>
-              <a href="#">Hanging Plants</a>
-              <a href="#">Fruit Plants</a>
-              <a href="#">Bundle Plants</a>
-              <a href="#">Others</a>
 
             </div>
           </li> 
-          <li class="nav-item" id="dropdown">
+          <!-- <li class="nav-item" id="dropdown">
             <a href="" class="nav-link" id="dropbtn">Seeds
             </a>
             <div class="dropdown-content">
@@ -66,9 +58,10 @@
             </div>
           </li>  
           <li class="nav-item" >
-            <a href="" class="nav-link" id="dropbtn"> Fertilizers
+            <a href="add_catg" class="nav-link" id="dropbtn"> category
             </a>
-          </li> 
+          </li>  -->
+          {% endfor %}
         </ul>
 <!-- 
         <div class="collapse navbar-collapse" id="mynavbar">
@@ -100,6 +93,9 @@
     <h1>admin</h1>
 
 
+    <a href="add_catg" class="nav-link" id="dropbtn"> category</a>
 
+
+    
 </body>
 </html>

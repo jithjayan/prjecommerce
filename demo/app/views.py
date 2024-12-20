@@ -21,4 +21,22 @@ def add(req):
         data.save()
         return redirect(add)
     else:
-        return ("dddd")
+        return render(req,'add.html')
+
+def add_plants(req):
+    #  if 'shop' in req.session:
+          
+        if req.method=='POST':
+            id=req.POST['p_id']
+            name=req.POST['name']
+            type=req.POST['p_type']
+            price=req.POST['price']
+            img=req.FILES['img']
+            stock=req.POST['stock']
+            disp=req.POST['disp']
+            data=plants.objects.create(p_id=id,name=name,p_type=type,price=price,img=img,stock=stock,disp=disp)
+            data.save()
+            return redirect(add)
+            
+        else:
+            return render(req,'add_plants.html')
