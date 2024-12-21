@@ -10,6 +10,8 @@ from django.conf import settings
 # Create your views here.
 
 def m_login(req):
+    if 'admin' in req.session:
+        return redirect(admin_home)
     if 'user' in req.session:
         return redirect(user_prfl)
     if req.method=='POST':
@@ -19,7 +21,7 @@ def m_login(req):
         if data:
             if data.is_superuser:
                 login(req,data)
-                req.session['shop']=uname
+                req.session['admin']=uname
                 return redirect(admin_home)
             else:
                 login(req,data)
@@ -65,6 +67,11 @@ def int_plt(req):
 
 def user_prfl(req):
     return render(req,'user/userprf.html')
+
+def user_logout(req):
+    req.session.flush()
+    logout(req)
+    return redirect(user_home)
 
 def user_logout(req):
     req.session.flush()
