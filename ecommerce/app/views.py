@@ -55,9 +55,9 @@ def admin_home(req):
     return render(req,'admin/adminhome.html',{'Category':data})
 
 def user_home(req):
-
     data=Plants.objects.all()[::-1]
     return render(req,'user/userhome.html',{'Plants':data})
+
 def homep(req):
     return redirect(user_home)
 
@@ -73,7 +73,7 @@ def user_logout(req):
     logout(req)
     return redirect(user_home)
 
-def user_logout(req):
+def admin_logout(req):
     req.session.flush()
     logout(req)
     return redirect(user_home)
@@ -116,3 +116,7 @@ def add_catg(req):
 # def view_category(req):
 #     data=Category.objects.all()
 #     return render(req,'admin/add_catg.html',{'Category':data})
+
+
+# def filter_data(req,cat):
+#     data=
