@@ -36,5 +36,20 @@
 </div>
 </div>
 
+
+<ul class="navbar-nav me-auto">
+  {% for i in Plants%}
+  <li class="nav-item" id="dropdown">
+    <a href="" class="nav-link" id="dropbtn">{{i.c_name}}</a>
+    <div class="dropdown-content">
+      <a href="">Product</a>
+      <a href="add_catg">category</a>
+
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+
+
 </body>
 </html>

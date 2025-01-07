@@ -17,3 +17,4 @@ class Plants(models.Model):
 class Cart(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     Plants=models.ForeignKey(Plants,on_delete=models.CASCADE)
+    

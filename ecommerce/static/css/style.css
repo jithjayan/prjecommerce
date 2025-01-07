@@ -200,8 +200,12 @@ body {
 
 .vp_btn button{
     color: white;
-    background-color:#4CAF50;
+    background-color:#1c7e31;
 } 
+.vp_btn button:hover{
+    color: rgb(0, 0, 0);
+    background-color:#80c48e;
+}
 
 
 @media (max-width:700px) {
