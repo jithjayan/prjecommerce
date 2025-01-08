@@ -16,6 +16,7 @@ urlpatterns=[
     path('view_pro/<pid>',views.view_pro),
     path('add_catg',views.add_catg),
     path('admin_logout',views.admin_logout),
+    path('buy',views.buy),
     # path('view_category',views.view_category),
  
 

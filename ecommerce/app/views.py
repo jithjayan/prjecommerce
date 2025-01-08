@@ -52,7 +52,8 @@ def reg(req):
 
 def admin_home(req):
     data=Category.objects.all()
-    return render(req,'admin/adminhome.html',{'Category':data})
+    p_data=Plants.objects.all()
+    return render(req,'admin/adminhome.html',{'Category':data,'Plants':p_data})
 
 def user_home(req):
     data=Plants.objects.all()[::-1]
@@ -112,6 +113,9 @@ def add_catg(req):
     else:
         data=Category.objects.all()
         return render(req,'admin/add_catg.html',{'Category':data})
+
+def buy(req):
+    return render(req,'user/buy.html')
 
 # def view_category(req):
 #     data=Category.objects.all()
