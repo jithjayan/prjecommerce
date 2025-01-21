@@ -97,38 +97,25 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
           
-          {% for i in Category%}
+          
           <ul class="navbar-nav me-auto">
+            {% for i in Category%}
             <li class="nav-item" id="dropdown">
               <a href="" class="nav-link" id="dropbtn">{{i.c_name}}</a>
               
               <div class="dropdown-content">
-                {% for pl in Plants%}
-                <a href="">{{pl.catg}}</a>
+                {% for j in Plants %}
+                {% if j.catg == i %}
+                <a href="">{{j.p_catg}}</a>
                 <!-- <a href="add_catg">category</a> -->
+                {% endif %}
                 {% endfor %}
               </div>
               
-            <!-- </li> 
-            <li class="nav-item" id="dropdown">
-              <a href="" class="nav-link" id="dropbtn">Update
-              </a>
-              <div class="dropdown-content">
-                <a href="">Product</a>
-                <a href="">category</a>
-              </div>
-            </li> 
-            <li class="nav-item" id="dropdown">
-              <a href="" class="nav-link" id="dropbtn">Delete
-              </a>
-              <div class="dropdown-content">
-                <a href="">Product</a>
-                <a href="">category</a>
-              </div>
-            </li>   -->
-  
+
+            {% endfor %}
+
           </ul>
-          {% endfor %}
   
         </div>  
       </div>

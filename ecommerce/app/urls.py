@@ -17,6 +17,8 @@ urlpatterns=[
     path('add_catg',views.add_catg),
     path('admin_logout',views.admin_logout),
     path('buy',views.buy),
+    path('adrs',views.adrs),
+    path('delete_address/<pid>',views.delete_address),
     # path('view_category',views.view_category),
  
 

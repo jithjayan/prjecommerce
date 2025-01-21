@@ -51,9 +51,12 @@ def reg(req):
             return render(req,'user/register.html')
 
 def admin_home(req):
+    
     data=Category.objects.all()
     p_data=Plants.objects.all()
+    
     return render(req,'admin/adminhome.html',{'Category':data,'Plants':p_data})
+    # return render(req,'admin/adminhome.html',{'Category':data,'Plants':p_data})
 
 def user_home(req):
     data=Plants.objects.all()[::-1]
@@ -116,6 +119,37 @@ def add_catg(req):
 
 def buy(req):
     return render(req,'user/buy.html')
+
+
+def adrs(req):
+    if 'user' in req.session:
+        user=User.objects.get(username=req.session['user'])
+        data1=Address.objects.filter(user=user)
+
+        if req.method == 'POST':
+            user=User.objects.get(username=req.session['user'])
+            name=req.POST['name']
+            phn=req.POST['phn']
+            pin=req.POST['pin']
+            loc=req.POST['loc']
+            adrs=req.POST['adrs']
+            city=req.POST['city']
+            state=req.POST['state']
+            data=Address.objects.create(user=user,name=name,phn=phn,pin=pin,loc=loc,adrs=adrs,city=city,state=state)
+            data.save()
+            return redirect(adrs)
+        else:
+            return render(req,'user/adrs.html',{'data1':data1})
+    else:
+        return render(req,"user/userprf.html")
+
+def delete_address(req,pid):
+    if 'user' in req.session:
+        data=Address.objects.get(pk=pid)
+        data.delete()
+        return redirect(adrs)
+    else:
+        return redirect(user_prfl)
 
 # def view_category(req):
 #     data=Category.objects.all()
