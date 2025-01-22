@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    {% load static %}
 </head>
 <body>
 
@@ -12,9 +13,29 @@
           <div class="col-lg-3" style=" width: 30%px; ">
             <div class="usrdiv1">
               <img src="{% static 'images/prfl.webp' %}" alt="" style="height: 50px; width: 50px;"> 
-              <p>Hello,jith</p>
+              <p>Hello,user</p>
             </div>
           </div>
+
+          <div class="col-lg-5">
+            {% for i in data1 %}
+            <div class="card">
+              <div class="card-body">
+                  <h4 class="card-title"> name: {{i.name}}</h4>
+                  <h5 class="card-text"> ph : {{i.phn}}</h5>
+                  <h5 class="card-text">pin : {{i.pin}}</h5>
+                  <h5 class="card-text">location : {{i.loc}}</h5>
+                  <h5 class="card-text">Address : {{i.adrs}}</h5>
+                  <h5 class="card-text">city : {{i.city}}</h5>
+                  <h5 class="card-text">state : {{i.state}}</h5>
+
+                  <a href="delete_address/{{i.pk}}" class="btn btn-danger">Delete</a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+          
         </div>
     </div>
 

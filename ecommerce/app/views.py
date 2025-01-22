@@ -118,10 +118,12 @@ def add_catg(req):
         return render(req,'admin/add_catg.html',{'Category':data})
 
 def buy(req):
-    return render(req,'user/buy.html')
+    user=User.objects.get(username=req.session['user'])
+    data=Address.objects.filter(user=user)
+    return render(req,'user/buy.html',{'data':data})
 
 
-def adrs(req):
+def addrs(req):
     if 'user' in req.session:
         user=User.objects.get(username=req.session['user'])
         data1=Address.objects.filter(user=user)
@@ -137,7 +139,7 @@ def adrs(req):
             state=req.POST['state']
             data=Address.objects.create(user=user,name=name,phn=phn,pin=pin,loc=loc,adrs=adrs,city=city,state=state)
             data.save()
-            return redirect(adrs)
+            return redirect(addrs)
         else:
             return render(req,'user/adrs.html',{'data1':data1})
     else:
@@ -147,7 +149,7 @@ def delete_address(req,pid):
     if 'user' in req.session:
         data=Address.objects.get(pk=pid)
         data.delete()
-        return redirect(adrs)
+        return redirect(addrs)
     else:
         return redirect(user_prfl)
 
