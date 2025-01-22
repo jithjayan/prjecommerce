@@ -118,9 +118,12 @@ def add_catg(req):
         return render(req,'admin/add_catg.html',{'Category':data})
 
 def buy(req):
-    user=User.objects.get(username=req.session['user'])
-    data=Address.objects.filter(user=user)
-    return render(req,'user/buy.html',{'data':data})
+    if 'user' in req.session:
+        user=User.objects.get(username=req.session['user'])
+        data=Address.objects.filter(user=user)
+        return render(req,'user/buy.html',{'data':data})
+    else:
+        return redirect(m_login)
 
 
 def addrs(req):
