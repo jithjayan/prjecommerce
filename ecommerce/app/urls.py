@@ -19,6 +19,7 @@ urlpatterns=[
     path('buy',views.buy),
     path('adrs',views.addrs),
     path('delete_address/<pid>',views.delete_address),
+    path('add_prd',views.add_prd),
     # path('view_category',views.view_category),
  
 

@@ -156,6 +156,33 @@ def delete_address(req,pid):
     else:
         return redirect(user_prfl)
 
+
+# -------------admin---------
+
+
+def add_prd(req):
+    if 'admin' in req.session:
+        if req.method == 'POST':
+            p_id=req.POST['p_id']
+            name=req.POST['name']
+            p_catg=req.POST['p_cats']
+            p_dis=req.POST['p_dis']
+            price=req.POST['price']
+            offer_price=req.POST['offer_price']
+            img=req.POST['img']
+            img2=req.POST['img2']
+            prd_cate=req.POST['prd_cate']
+            data=Plants.objects.create(category=Category.objects.get(category=prd_cate),p_id=p_id,name=name,p_catg=p_catg,p_dis=p_dis,price=price,offer_price=offer_price,img=img,img2=img2)
+            data.save()
+            return redirect(add_prd)
+        else:
+            data=Category.objects.all()
+            return render(req,'admin/add_prdct.html',{'data':data})
+    else:
+        return redirect(m_login)
+
+
+
 # def view_category(req):
 #     data=Category.objects.all()
 #     return render(req,'admin/add_catg.html',{'Category':data})
@@ -163,3 +190,5 @@ def delete_address(req,pid):
 
 # def filter_data(req,cat):
 #     data=
+
+
